@@ -1,4 +1,4 @@
-const init = function() {
+const INIT = function() {
     function removeElementsByClass(className) {
         const elements = document.getElementsByClassName(className);
         while (elements.length > 0) {
@@ -9,25 +9,22 @@ const init = function() {
     // Reset the grid if .container contains any .pixel elements
     removeElementsByClass("pixel");
 
+    // Create and append pixel divs
     function appendDiv(percentage) {    
         function createDiv() {
-            // Get container by ID
-            const cont = document.getElementById("container");
+            const CONT = document.getElementById("container");
+            const DIV = document.createElement("div");
 
-            // Create new div
-            const div = document.createElement("div");
-
-            // Set div class to "pixel"
-            div.setAttribute("class", "pixel");
-            div.setAttribute("style", ("width: " + (100/percentage) + "%; height: " + (100/percentage) + "%;"));
-            div.style.backgroundColor = "rgba(0,0,0,0)";
-            div.setAttribute("onmouseover", "mEnter(this);");
+            // Set div attributes"
+            DIV.setAttribute("class", "pixel");
+            DIV.setAttribute("style", ("width: " + (100/percentage) + "%; height: " + (100/percentage) + "%;"));
+            DIV.style.backgroundColor = "rgba(0,0,0,0)";
+            DIV.setAttribute("onmouseover", "mEnter(this);");
 
             // Append "pixel" div to container
-            cont.appendChild(div);
+            CONT.appendChild(DIV);
         };
 
-        // Append children to container
         let i = 0;
         while (i < percentage*percentage) {
             createDiv();
@@ -59,7 +56,6 @@ const mEnter = function(obj) {
         if (colorSelection == "rainbow") {
             obj.style.backgroundColor = colorSelect(randomColorValue(), randomColorValue(), randomColorValue(), 1);
         } else
-        // if (colorSelection == "shade") 
         {
             aValue = parseFloat(obj.style.backgroundColor.split("(")[1].split(")")[0].split(",")[3]);
             obj.style.backgroundColor = colorSelect(0, 0, 0, (aValue + 0.1));
@@ -70,4 +66,4 @@ const mEnter = function(obj) {
     };
 };
 
-Window.onload = init();
+Window.onload = INIT();
