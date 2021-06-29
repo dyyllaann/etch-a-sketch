@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <div>
+            <h1>Etch-A-Sketch</h1>
+            <div id="controls">
+                <div>
+                    <label for="color-select">Color select:</label>
+                    <select id="color-select" name="color-select">
+                        <option value="black">Black</option>
+                        <option value="rainbow">Rainbow</option>
+                        <option value="shade">Shade</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="checkbox" id="eraser" name="eraser">
+                    <label for="eraser">Eraser</label><br>
+                </div>
+                <div>
+                    <label for="grid-size">Grid size:</label>
+                    <input type="number" id="grid-size" name="grid-size" min="1" max="100" step="10" value="25"><br>
+                </div>
+                <div>
+                    <button onclick="init();" value="Submit">Reset</button>
+                </div>
+            </div>
+        </div>
+        <div id="container">
+        </div>
+    </body>
+</html>
